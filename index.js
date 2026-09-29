@@ -33,9 +33,18 @@ app.post("/search", async (req, res) => {
 
         const data = response.data;
 
+        // store total stats of the pokemon
+        const totalStats = data.stats.reduce(
+            (total, stat) => total + stat.base_stat,
+            0
+        );
+
+        const statBarWidth = Math.min((totalStats / 700) * 100, 100);
+        
         const pokemon = {
             id: data.id,
             name: data.name,
+
             image:
                 data.sprites.other["official-artwork"].front_default ||
                 data.sprites.front_default,
@@ -52,7 +61,10 @@ app.post("/search", async (req, res) => {
             stats: data.stats.map(stat => ({
                 name: stat.stat.name,
                 value: stat.base_stat
-            }))
+            })),
+
+            totalStats: totalStats,
+            statBarWidth: statBarWidth
         };
 
         res.render("index", {
@@ -80,3 +92,4 @@ app.post("/search", async (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+

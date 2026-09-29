@@ -64,7 +64,7 @@ h1 {
 }
 
 .pokemon-card {
-    background-color: white;
+    background-color: darkgray;
     border-radius: 12px;
     padding: 40px;
     border: 3px solid black;
@@ -76,7 +76,7 @@ h1 {
 }
 
 .pokemon-number {
-    color: grey;
+    color: white;
 }
 
 .pokemon-image {
@@ -101,6 +101,32 @@ h1 {
     padding: 8px 0;
     border-bottom: 1px solid #ddd;
     text-transform: capitalize;
+}
+
+.stat-progress {
+    width: 100%;
+    height: 20px;
+}
+
+.stat-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+.stat-labels span:nth-child(1) {
+    color: red;
+}
+
+.stat-labels span:nth-child(2) {
+    color: #f9d90a;
+}
+
+.stat-labels span:nth-child(3) {
+    color: green;
 }
 
 @media (max-width: 600px) {

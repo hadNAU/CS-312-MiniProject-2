@@ -108,6 +108,28 @@
 
                 </div>
 
+                <div class="stat-total">
+                    <h3>Base Stat Total</h3>
+
+                    <p>
+                        <strong><%= pokemon.totalStats %></strong>
+                    </p>
+
+                    <div class="stat-bar">
+                        <progress
+                            class="stat-progress"
+                            value="<%= pokemon.totalStats %>"
+                            max="700">
+                        </progress>
+                    </div>
+
+                    <div class="stat-labels">
+                        <span>Low</span>
+                        <span>Average</span>
+                        <span>Elite</span>
+                    </div>
+                </div>
+
             </section>
 
         <% } %>
