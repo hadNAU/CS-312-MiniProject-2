@@ -1,0 +1,23 @@
+{
+  "name": "cs-312-miniproject-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.20.0",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-school:hadNAU/CS-312-MiniProject-2.git"
+  }
+}
