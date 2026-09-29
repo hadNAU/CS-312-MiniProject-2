@@ -12,11 +12,106 @@
 <body>
 
     <main class="container">
+
         <h1>Pokémon Finder</h1>
 
-        <p>
-            Search for information about your favorite Pokémon.
+        <p class="description">
+            Search for a Pokémon to view its information and base stats.
         </p>
+
+        <form action="/search" method="POST" class="search-form">
+            <input
+                type="text"
+                name="pokemon"
+                placeholder="Enter a Pokémon name"
+                required
+            >
+
+            <button type="submit">
+                Search
+            </button>
+        </form>
+
+        <% if (error) { %>
+
+            <div class="error">
+                <%= error %>
+            </div>
+
+        <% } %>
+
+        <% if (pokemon) { %>
+
+            <section class="pokemon-card">
+
+                <h2>
+                    <%= pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) %>
+                </h2>
+
+                <p class="pokemon-number">
+                    #<%= pokemon.id %>
+                </p>
+
+                <% if (pokemon.image) { %>
+
+                    <img
+                        src="<%= pokemon.image %>"
+                        alt="<%= pokemon.name %>"
+                        class="pokemon-image"
+                    >
+
+                <% } %>
+
+                <div class="info">
+
+                    <p>
+                        <strong>Type:</strong>
+                        <%= pokemon.types.join(", ") %>
+                    </p>
+
+                    <p>
+                        <strong>Height:</strong>
+                        <%= pokemon.height %> m
+                    </p>
+
+                    <p>
+                        <strong>Weight:</strong>
+                        <%= pokemon.weight %> kg
+                    </p>
+
+                    <p>
+                        <strong>Abilities:</strong>
+                        <%= pokemon.abilities.join(", ") %>
+                    </p>
+
+                </div>
+
+                <h3>Base Stats</h3>
+
+                <div class="stats">
+
+                    <% pokemon.stats.forEach(stat => { %>
+
+                        <div class="stat">
+
+                            <span>
+                                <%= stat.name.replace("-", " ") %>
+                            </span>
+
+                            <strong>
+                                <%= stat.value %>
+                            </strong>
+
+                        </div>
+
+                    <% }) %>
+
+                </div>
+
+            </section>
+
+        <% } %>
+
     </main>
 
 </body>
